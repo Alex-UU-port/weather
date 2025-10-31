@@ -9,7 +9,7 @@ public class getWeather {
 
             // Формируем URL API с нужными параметрами lat и lon
             String key = "15124495-501a-4600-8f73-6fd57872d292";
-            Stringg apiUrl = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon;
+            String apiUrl = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon;
 
             // Создаём экземпляр HttpClient — объекта, отправляющего HTTP-запросы
             HttpClient client = HttpClient.newHttpClient();
