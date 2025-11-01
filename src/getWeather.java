@@ -25,12 +25,17 @@ public class getWeather {
             // В данном случае используем синхронный вызов send()
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            // Выводим статус-код ответа
-            System.out.println("Код ответа: " + response.statusCode());
+            if (response.statusCode() == 200) {
+                // Выводим статус-код ответа
+                System.out.println("Код ответа: " + response.statusCode());
+                // Возвращаем тело ответа
+                return response.body();
+            }  else {
+            System.out.println("Ошибка запроса: " + response.statusCode());
+            System.out.println("Текст ответа: " + response.body());
 
-            // Выводим тело ответа
-            return response.body();
-
+            return "";
+        }
         } catch (Exception e) {
             // Обработка возможных исключений, например, ошибок сети или некорректных URL
             e.printStackTrace();
