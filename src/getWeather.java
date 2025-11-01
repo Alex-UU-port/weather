@@ -4,7 +4,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class getWeather {
-    public static void get(float lat, float lon) {
+    public static String get(float lat, float lon) {
         try {
 
             // Формируем URL API с нужными параметрами lat и lon
@@ -29,11 +29,12 @@ public class getWeather {
             System.out.println("Код ответа: " + response.statusCode());
 
             // Выводим тело ответа
-            System.out.println("Ответ API: " + response.body());
+            return response.body();
 
         } catch (Exception e) {
             // Обработка возможных исключений, например, ошибок сети или некорректных URL
             e.printStackTrace();
+            return "";
         }
 
     }
